@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1640395113626268');
+fbq('track', 'PageView');
+fbq('track', 'Purchase', {value: 47.00, currency: 'BRL'});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1640395113626268&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Compra Confirmada — Leggere 30</title>
@@ -271,25 +289,20 @@
 
       <div class="price-block">
         <div class="price-left">
-          <p class="original">De R$ 147</p>
-          <p class="promo">R$ 97 <span>/ único</span></p>
+          <div class="original">De R$ 147</div>
+          <div class="promo">R$ 97 <span>/ único</span></div>
         </div>
         <div class="price-right">
           <div class="savings">Você economiza R$ 50</div>
-          <p class="note">Pagamento único · Acesso vitalício</p>
+          <div class="note">Pagamento único · Acesso vitalício</div>
         </div>
       </div>
 
-      <a href="https://legerre365.vercel.app" class="btn-upsell">
-        Sim, quero o Leggere 365 por R$ 97 →
-      </a>
-      <button class="btn-decline" onclick="window.location.href='https://leggereobgsimp.vercel.app'">
-        Não, prefiro ficar só com o Leggere 30
-      </button>
+      <a href="https://pay.cakto.com.br/3cu6hbg_794553" class="btn-upsell">Sim, quero o Leggere 365 por R$ 97 →</a>
+      <button class="btn-decline" onclick="window.location.href='#';">Não, prefiro ficar só com o Leggere 30</button>
+
       <div class="guarantee">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
         Compra segura · Acesso imediato por e-mail
       </div>
     </div>
@@ -300,54 +313,59 @@
     <div class="delivery-grid">
       <div class="delivery-item">
         <div class="delivery-icon">📊</div>
-        <div><h4>Planilha Leggere 30</h4><p>6 abas: Painel, Organização Mensal, Mapa de Gastos, Gastos Invisíveis, Reserva e Simulador.</p></div>
+        <div>
+          <h4>Planilha Leggere 30</h4>
+          <p>6 abas: Painel, Organização Mensal, Mapa de Gastos, Gastos Invisíveis, Reserva e Simulador.</p>
+        </div>
       </div>
       <div class="delivery-item">
         <div class="delivery-icon">📚</div>
-        <div><h4>5 Módulos de Ensino</h4><p>Do raio-X do mês até sua primeira reserva em 30 dias.</p></div>
+        <div>
+          <h4>5 Módulos de Ensino</h4>
+          <p>Do raio-X do mês até sua primeira reserva em 30 dias.</p>
+        </div>
       </div>
       <div class="delivery-item">
         <div class="delivery-icon">📋</div>
-        <div><h4>Mini-Guia de Uso</h4><p>Passo a passo para iniciantes e para quem já tem familiaridade com planilhas.</p></div>
+        <div>
+          <h4>Mini-Guia de Uso</h4>
+          <p>Passo a passo para iniciantes e para quem já tem familiaridade com planilhas.</p>
+        </div>
       </div>
       <div class="delivery-item">
         <div class="delivery-icon">✅</div>
-        <div><h4>Checklist Semanal</h4><p>4 semanas de acompanhamento para criar o hábito de vez.</p></div>
+        <div>
+          <h4>Checklist Semanal</h4>
+          <p>4 semanas de acompanhamento para criar o hábito de vez.</p>
+        </div>
       </div>
     </div>
   </div>
 
+  <footer>
+    <p>© 2025 Leggere 30 · <a href="#">Suporte</a> · <a href="#">Política de Privacidade</a></p>
+  </footer>
+
 </div>
-<footer>© 2025 Leggere 30 · <a href="#">Suporte</a> · <a href="#">Política de Privacidade</a></footer>
 
 <script>
-  let seconds = 10 * 60;
-  const display = document.getElementById('timer');
-  function tick() {
-    if (seconds <= 0) { display.textContent = '00:00'; return; }
-    seconds--;
-    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-    const s = (seconds % 60).toString().padStart(2, '0');
-    display.textContent = `${m}:${s}`;
-    setTimeout(tick, 1000);
+  function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      display.textContent = minutes + ":" + seconds;
+      if (--timer < 0) { timer = 0; }
+    }, 1000);
   }
-  tick();
+  window.onload = function () {
+    var tenMinutes = 60 * 10,
+    display = document.querySelector('#timer');
+    startTimer(tenMinutes, display);
+  };
 </script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1640395113626268');
-fbq('track', 'Purchase', {value: 47.00, currency: 'BRL'});
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1640395113626268&ev=Purchase&noscript=1"/></noscript>
-<!-- End Meta Pixel Code -->
+
 </body>
 </html>
